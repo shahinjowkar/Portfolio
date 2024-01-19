@@ -11,21 +11,21 @@
 	},
 
 	"header": {
-		"name": "Muhammad Fiaz.",
-		"usp": "Passionate Full Stack Developer."
+		"name": "Shahin Dris.",
+		"usp": "Software engineer."
 	},
 
-	"paragraph": "From an early age, my fascination with programming and computers ignited a lifelong passion. Constantly learning and developing, I strive to make a profound impact through innovative solutions and visionary ideas, shaping the future with my unwavering commitment to technological advancement. ",
+	"paragraph": "My juerny in tech is like a lifelong adventure for me.  always picking up new skills and tinkering with cool projects. My goal? To really shake things up with some groundbreaking ideas and tech innovations. I'm all in, committed to pushing the boundaries and seeing where this tech journey takes us!",
 
 	"buttons": {
 		"primary": {
-			"title": "Hire Me",
-			"url": "mailto:s.muhammadfiaz2003@gmail.com",
+			"title": "Contact me",
+			"url": "mailto:shahinjowkardris@gmail.com",
 			"leaveSite": false
 		},
 		"secondary": {
 			"title": "LinkedIn",
-			"url": "https://www.linkedin.com/in/muhammad-fiaz-/",
+			"url": "www.linkedin.com/in/shahinjowkar",
 			"leaveSite": "true"
 		}
 	}

@@ -209,7 +209,7 @@ export default function Navbar() {
 			<ul className={css.menu}>
 				<li className={css.menuHeader}>
 					<Link className={css.logo} href="/">
-						{settings.name}
+						SHJ
 					</Link>
 					<button onClick={toggleMenu} className={css.mobileToggle} data-open={menuState}>
 						<div>
@@ -228,9 +228,9 @@ export default function Navbar() {
 							);
 						})}
 						<li>
-							<ThemeMode />
+							{/* <ThemeMode /> */}
 						</li>
-						<li>{signInContent}</li>
+						{/* <li>{signInContent}</li> */}
 					</ul>
 				</li>
 			</ul>

@@ -41,8 +41,7 @@ export default function HomePage({ spacing }: HomePageProps) {
 			<About />
 			<GithubGraphSection/>
 
-			<FeaturedProjects />
-			<Technical />
+			{/* <Technical /> */}
 			{/*	<TimeLine/> -> Still In Development*/}
 			<Career />
 			<QnA />

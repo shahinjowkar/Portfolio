@@ -18,9 +18,9 @@ export default function SetTheme() {
 		if (theme === "light") {
 			setTheme("dark");
 		} else if (theme === "dark") {
-			setTheme("unicorn");
+			setTheme("dark");
 		} else if (theme === "unicorn") {
-			setTheme("light");
+			setTheme("dark");
 		}
 	};
 

@@ -25,23 +25,23 @@ export default function Hero() {
 				<TypeAnimation
 					className={`${hero.preHeader}`}
 					sequence={[
-						content.intro.startDelay,
-						() => {
-							setTypingStatus('typing');
-						},
-						content.intro.start,
+				
+						"Computer Science undergrad @Mcgill",
+						3000,
 						() => {
 							setTypingStatus('typed');
 						},
-						content.intro.deleteDelay,
+						"Freelancer and webApp developer",
+						3000,
 						() => {
 							setTypingStatus('deleting');
 						},
-						content.intro.end,
+						"Passionate about AI and machine learning",
+						3000,
 						() => {
 							setTypingStatus('deleted');
 						},
-						content.intro.restartDelay,
+						"",
 					]}
 					speed={content.intro.speed}
 					deletionSpeed={content.intro.deletionSpeed}
@@ -60,36 +60,36 @@ export default function Hero() {
 				<section style={{ position: 'relative' }}>
 					<button
 						className={`button ${button.primary}`}
-						onClick={() => (window.location = 'mailto:contact@muhammadfiaz.com')}
+						onClick={() => (window.location = 'mailto:shahinjowkardris@gmail.com')}
 						onMouseEnter={() => setIsHiremeTooltipVisible(true)}
 						onMouseLeave={() => setIsHiremeTooltipVisible(false)}
 					>
 						{content.buttons.primary.title}
 					</button>
-					{isHiremeTooltipVisible && (
+					{/* {isHiremeTooltipVisible && (
 						<div className={`${hero.tooltipContent} ${hero.hireme_tooltip}`}>
 
 							<Image src="/gif/hireme.gif" width={100} height={100} alt="Yescat GIF" />
 
 						</div>
-					)}
+					)} */}
 					<button
 						className={`button ${button.secondary} leaveSite`}
 
-						onClick={() => window.open('https://www.linkedin.com/in/muhammad-fiaz-', '_blank')}
+						onClick={() => window.open("www.linkedin.com/in/shahinjowkar", '_blank')}
 
 						onMouseEnter={() => setIsYescatTooltipVisible(true)}
 						onMouseLeave={() => setIsYescatTooltipVisible(false)}
 					>
 						{content.buttons.secondary.title}
 					</button>
-					{isYescatTooltipVisible && (
+					{/* {isYescatTooltipVisible && (
 						<div className={`${hero.tooltipContent} ${hero.yescat_tooltip}`}>
 
 							<Image src="/gif/yes.gif" width={100} height={100} alt="GIF" />
 
 						</div>
-					)}
+					)} */}
 				</section>
 			</Container>
 			<HeroBg theme="bg-color-1" />

@@ -6,6 +6,10 @@
 		"primaryLight": 	"#0c1019"
 	},
 	"light": {
+		"secondaryDark": 	"#060708",
+		"secondaryLight": "#07120e",
+		"primaryDark": 	"#06050a",
+		"primaryLight": 	"#0c1019"
 
 	},
 	"unicorn": {

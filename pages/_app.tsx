@@ -83,7 +83,6 @@ const MyApp: React.FC<MyAppProps> = ({ Component, pageProps }) => {
                 <LazyMotion features={domAnimation}>
                     <Layout>
                         <Component {...pageProps} />
-                        <DevelopmentNotice />
                         <Chatbot />
                         <SpeedInsights/>
                         <Analytics />
