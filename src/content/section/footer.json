@@ -39,20 +39,17 @@
 	],
 
 	"social": [
+
 		{
-			"url": "https://medium.com/@muhammad-fiaz",
-			"icon": "medium"
-		},
-		{
-			"url": "https://dev.to/muhammadfiaz",
+			"url": "https://devpost.com/shahinjowkar",
 			"icon": "dev"
 		},
 		{
-			"url": "https://www.linkedin.com/in/muhammad-fiaz-/",
+			"url": "https://www.linkedin.com/in/shahinjowkar/",
 			"icon": "linkedin"
 		},
 		{
-			"url": "https://github.com/muhammad-fiaz",
+			"url": "https://github.com/shahinjowkar",
 			"icon": "github"
 		}
 	]
