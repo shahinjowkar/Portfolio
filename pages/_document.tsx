@@ -17,11 +17,11 @@ export default function Document() {
     <meta charSet="utf-8" />
     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
     {/* eslint-disable-next-line @next/next/no-title-in-document-head */}
-    <title>Muhammad Fiaz</title>
+    {/* <title>Muhammad Fiaz</title> */}
        <meta name="description" content="Muhammad Fiaz - A dedicated Full Stack Developer proficient in App/Web, Cloud, DevOps, AL/ML, and Design. Join my journey." />
 
     {/*These are need for PWA*/}
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    {/* <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Muhammad Fiaz" />
     <meta name="format-detection" content="telephone=no" />
@@ -87,7 +87,7 @@ export default function Document() {
             <meta name="twitter:description" content="Muhammad Fiaz - A dedicated Full Stack Developer proficient in App/Web, Cloud, DevOps, AI/ML, and Design. Join my journey." />
             <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/75434191?v=4" />
             <meta name="twitter:creator" content="https://twitter.com/muhammadfiaz_" />
-            <meta name="twitter:domain" content="https://muhammadfiaz.com" />
+            <meta name="twitter:domain" content="https://muhammadfiaz.com" /> */}
 
 
     <link rel='apple-touch-startup-image' href='/img/logo_rounded.png' sizes='2048x2732' />
@@ -99,7 +99,7 @@ export default function Document() {
     <link rel='apple-touch-startup-image' href='/img/logo_rounded.png' sizes='640x1136' />
 
             {/*These are the Keywords that will Boost your SEO in Ranking, so Make Sure to include and Update it up to your preference or don't mind this! 😴*/}
-            <meta name="keywords" content="
+            {/* <meta name="keywords" content="
     Muhammad Fiaz, Full Stack Engineer, Full Stack Developer, DevOps Engineer, Software Engineer,
     Programmer, Software Developer, Portfolio Website, Web Developer, Coding, Full Stack Development,
     Technology Enthusiast, Software Development, Computer Science, Programming Projects,
@@ -132,7 +132,7 @@ export default function Document() {
     open source contributions coding student,open source contributions coding enthusiast,open source contributions coding architect,
     open source contributions coding projects portfolio,open source contributions coding projects specialist,
 
-" />
+" /> */}
 
 
             <script
