@@ -10,7 +10,6 @@ import SectionTitle from '../../blocks/section.title'
 
 import BadgesBlock from '../../blocks/about.badges'
 import CopyBlock from '../../blocks/about.copy'
-import pic from "../../../../public/img/profileAvatarV2.jpg"
 import about from '../../../styles/scss/sections/index/about.module.scss';
 import React from "react";
 
@@ -27,7 +26,7 @@ export default function Home() {
 			<section className={about.content}>
 					<div className={about.copy}>
 						<CopyBlock
-							title="SAS and web Solutins"
+							title="SASS and web Solutins"
 							containerClass={about.container}
 							iconClass={about.icon}
 							icon={['fas', 'code']}
