@@ -1,0 +1,21 @@
+[
+  {
+    "question": "Where are you currently studying?",
+    "answer": "I am currently studying computer science at McGill university and graduating fall 2024",
+    "isOpen": false
+
+  },
+
+  {
+    "question": "What extracurricular activities have you participated in?",
+    "answer": "Have competed in multiple hackathons and workd as a touter teching Linear algebra and calcules",
+    "isOpen": false
+
+  },
+  {
+    "question": "Can we recruit you?",
+    "answer": "Yes, I am currently looking for jobs.",
+    "isOpen": false
+
+  }
+]

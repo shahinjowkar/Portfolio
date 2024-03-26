@@ -1,0 +1,32 @@
+{
+	"intro": {
+		"start": "const myName = () =>",
+		"end": "Hey there!, my name is",
+		"speed": 60,
+		"deletionSpeed": 80,
+		"wrapper": "h2",
+		"startDelay": 1000,
+		"deleteDelay": 3000,
+		"restartDelay": 12000
+	},
+
+	"header": {
+		"name": "Shahin Dris.",
+		"usp": "Software engineer."
+	},
+
+	"paragraph": "My juerny in tech is like a lifelong adventure for me.  always picking up new skills and tinkering with cool projects. My goal? To really shake things up with some groundbreaking ideas and tech innovations. I'm all in, committed to pushing the boundaries and seeing where this tech journey takes us!",
+
+	"buttons": {
+		"primary": {
+			"title": "Contact me",
+			"url": "mailto:shahinjowkardris@gmail.com",
+			"leaveSite": false
+		},
+		"secondary": {
+			"title": "LinkedIn",
+			"url": "www.linkedin.com/in/shahinjowkar",
+			"leaveSite": "true"
+		}
+	}
+}

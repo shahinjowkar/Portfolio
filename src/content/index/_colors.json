@@ -1,0 +1,17 @@
+{
+	"dark": {
+		"primaryDark": 	"#05070a",
+		"primaryLight": 	"#07130f",
+		"secondaryDark": 	"#080608",
+		"secondaryLight": "#090408"
+	},
+	"light": {
+		"primaryDark": 	"#05070a",
+		"primaryLight": 	"#07130f",
+		"secondaryDark": 	"#080608",
+		"secondaryLight": "#090408"
+	},
+	"unicorn": {
+		
+	}
+}
