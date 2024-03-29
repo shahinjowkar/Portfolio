@@ -1,7 +1,6 @@
 
 import React from "react";
 import {useRouter} from "next/router";
-import {Player} from "";
 
 function Custom500() {
     const router = useRouter();
