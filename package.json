@@ -21,7 +21,7 @@
 		"@hcaptcha/react-hcaptcha": "^1.9.2",
 		"@uiw/react-markdown-preview": "^5.0.6",
 		"@vercel/analytics": "^1.1.1",
-		"@vercel/speed-insights": "^1.0.2",
+		"@vercel/speed-insights": "^1.0.10",
 		"axios": "^1.6.5",
 		"babel-plugin-macros": "^3.1.0",
 		"compression-webpack-plugin": "^10.0.0",
