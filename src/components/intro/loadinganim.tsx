@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 
-import { Player } from "@lottiefiles/react-lottie-player";
+
 
 export default function LoadingAnim() {
     // Use a state variable to track whether components are loaded

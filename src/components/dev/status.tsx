@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Player } from '@lottiefiles/react-lottie-player';
+
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 import ConfettiComponent from './../intro/confetti';
 import { checkForUpdates, VersionDetails } from './checkforupdates';

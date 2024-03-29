@@ -1,7 +1,7 @@
 
 import React from "react";
 import {useRouter} from "next/router";
-import {Player} from "@lottiefiles/react-lottie-player";
+
 
 function Custom404() {
     const router = useRouter();
