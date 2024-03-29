@@ -12,7 +12,7 @@ export default function TitleProjects() {
 
             {/*These are the Keywords that will Boost your SEO in Ranking, so Make Sure to include and Update it up to your preference or don't mind this! 😴*/}
             <meta name="keywords" content="Muhammad Fiaz,Muhammad Fiaz Projects,Projects,fiaz, Full Stack Engineer, Developer, Software, Web Development, Coding, Portfolio" />
-            <title>Muhammad Fiaz Projects</title>
+            <title>shahin Jowkar</title>
         </Head>
     );
 }

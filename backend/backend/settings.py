@@ -25,11 +25,6 @@ SECRET_KEY = 'django-insecure-$j668%vmf!(i$s9d#h6&w6c&n*ej0oo5n(8!%)ovu_f@$@xde^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*',  # '*' you can remove this if you are in production use
-                 'http://localhost:3000',  # Replace with the URL of your React app or '*' for all domains
-                 'https://muhammadfiaz.com',
-                 'https://www.muhammadfiaz.com']
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,7 +34,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'portfolio.apps.MuhammadfiazConfig',
     'rest_framework',
     'corsheaders',  # Added for CORS support
 

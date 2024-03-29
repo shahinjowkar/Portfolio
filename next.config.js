@@ -42,11 +42,6 @@ Don't remove these this uses the protocol that are need to function properly
 			},
 			{
 				protocol: 'https',
-				hostname: '**.vercel.app',
-				pathname: '?app=muhammadfiaz-com-git-main-muhammadfiaz.vercel.app'
-			},
-			{
-				protocol: 'https',
 				hostname: '**.shields.io',
 				pathname: '/badge/**'
 			},
@@ -65,11 +60,7 @@ Don't remove these this uses the protocol that are need to function properly
 				hostname: '**.medium.com',
 				pathname: '/**'
 			},
-			{
-				protocol: 'https',
-				hostname: 'github.com',
-				pathname: '/muhammad-fiaz/portfolio/**',
-			},
+	
 
 		],
 	},

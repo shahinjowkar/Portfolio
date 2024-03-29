@@ -1,5 +1,5 @@
 {
-	"name": "Muhammad Fiaz",
+	"name": "shahin Jowkar",
 	"logo": "",
 	"splashscreen": true,
 
@@ -7,18 +7,18 @@
 	"version": "1.0.6",
 
 	"username": {
-		"github": "muhammad-fiaz",
-		"medium": "@muhammad-fiaz",
-		"dev": "muhammadfiaz"
+		"github": "shahin Jowkar",
+		"medium": "@shahin Jowkar",
+		"dev": "shahin Jowkar"
 	},
 	"repository": {
-		"owner": "muhammad-fiaz",
+		"owner": "shahin Jowkar",
 		"name": "portfolio",
 		"repoName": "portfolio"
 	},
 	"portfolio": {
 		"fork_this": "Open-Source project 🥰",
-		"repo_html": "https://github.com/muhammad-fiaz/portfolio.git",
-		"repo_api": "https://api.github.com/repos/muhammad-fiaz/portfolio"
+		"repo_html": "https://github.com/shahin Jowkar/portfolio.git",
+		"repo_api": "https://api.github.com/repos/shahin Jowkar/portfolio"
 	}
 }
