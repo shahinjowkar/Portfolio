@@ -1677,8 +1677,6 @@
     unist-builder "3.0.1"
     unist-util-visit "4.1.2"
 
-
-
 "@lottiefiles/relottie-parse@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@lottiefiles/relottie-parse/-/relottie-parse-1.0.0.tgz#ca2fc8e52eb02ebe2d5fa1933f05b8ba7a5842bd"
@@ -8061,7 +8059,7 @@ loose-envify@^1.1.0, loose-envify@^1.4.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
-lottie-web@^5.10.2, lottie-web@^5.12.2:
+lottie-web@^5.12.2:
   version "5.12.2"
   resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.12.2.tgz#579ca9fe6d3fd9e352571edd3c0be162492f68e5"
   integrity sha512-uvhvYPC8kGPjXT3MyKMrL3JitEAmDMp30lVkuq/590Mw9ok6pWcFCwXJveo0t5uqYw1UREQHofD+jVpdjBv8wg==
@@ -10275,7 +10273,7 @@ react-markdown@~9.0.1:
     unist-util-visit "^5.0.0"
     vfile "^6.0.0"
 
-react-redux@^9.0.4:
+react-redux@^9.1.0:
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-9.1.0.tgz#46a46d4cfed4e534ce5452bb39ba18e1d98a8197"
   integrity sha512-6qoDzIO+gbrza8h3hjMA9aq4nwVFCKFtY2iLxCtVT38Swyy2C/dJCGBXHeHLtx6qlg/8qzc2MrhOeduf5K32wQ==
