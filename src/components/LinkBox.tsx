@@ -13,15 +13,15 @@ interface LinkBoxProps {
 }
 
 export default function LinkBox({ logoUrls }: LinkBoxProps) {
-  // Create a repeating "#" pattern for background
-  const hashPattern = '#'.repeat(100);
-  const hashLines = Array(50).fill(hashPattern).join('\n');
+  // Create a repeating "#" pattern for background - larger pattern for better coverage
+  const hashPattern = '#'.repeat(200);
+  const hashLines = Array(200).fill(hashPattern).join('\n');
   
   return (
     <div className="w-full h-full relative flex items-center justify-center p-2 gap-2">
       {/* Background layer with "#" pattern */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
-        <pre className="font-mono text-[#00ff41]/10 text-[8px] leading-[8px] whitespace-pre w-full h-full">
+        <pre className="font-mono text-[#00ff41]/10 text-[8px] leading-[8px] whitespace-pre" style={{ width: '100%', height: '100%', minWidth: '100%', minHeight: '100%' }}>
           {hashLines}
         </pre>
       </div>
