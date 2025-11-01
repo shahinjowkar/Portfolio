@@ -4,19 +4,23 @@ import InteractiveTerminal from './InteractiveTerminal';
 import { mcgillAscii } from '@/assets/ascii/mcgill';
 import { computerAscii } from '@/assets/ascii/computer';
 import { skullAscii } from '@/assets/ascii/skull';
-import { linuxAscii } from '@/assets/ascii/linux';
+import { shieldAscii } from '@/assets/ascii/shield';
+import { logoAscii } from '@/assets/ascii/logo';
+import { emblemAscii } from '@/assets/ascii/emblem';
 import DFSMaze from './DFSMaze';
 import NeuralNetwork from './NeuralNetwork';
 
 export default function Overlay() {
   const greetingLines = [
-    '$ Hi, This Is Shahin Jowkar Dris known as Shawn',
-    '$>>man shahin',
-    'ls - List projects',
-    'whoami - About me',
-    'contact - Get in touch',
-    'bg - see my blog posts'
+    '$ Hi, This Is Shahin Jowkar Dris known as Shawn'
   ];
+
+  // URLs for the ASCII logos (customize these)
+  const logoUrls = {
+    shield: 'https://www.linkedin.com/in/shahinjowkar/',
+    logo: 'mailto:shahinjowkardris@gmail.com',  
+    emblem: 'https://github.com/shahinjowkar'
+  };
 
 
   return (
@@ -34,10 +38,40 @@ export default function Overlay() {
 
       {/* Corner overlays - 2/3 size of main (doubled from 1/3 = 26.67%) */}
       {/* Top left */}
-      <div className="absolute top-5 left-5 w-[26.67%] h-[26.67%] bg-black border border-[#00ff41]/30 z-[5] flex items-center justify-center p-3 overflow-hidden">
-        <pre className="font-mono text-[#00ff41] text-[12px] leading-[14px] whitespace-pre" style={{ textShadow: '0 0 2px #00ff41' }}>
-          {linuxAscii}
-        </pre>
+      <div className="absolute top-5 left-5 w-[26.67%] h-[26.67%] bg-black border border-[#00ff41]/30 z-[5] flex items-center justify-center p-2 gap-2 overflow-hidden">
+        <a 
+          href={logoUrls.shield} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex-shrink-0 hover:opacity-80 transition-opacity cursor-pointer"
+          style={{ transform: "scale(0.5)" }}
+        >
+          <pre className="font-mono text-[#00ff41] text-[2px] leading-[2.5px] whitespace-pre" style={{ textShadow: '0 0 1px #00ff41' }}>
+            {shieldAscii}
+          </pre>
+        </a>
+        <a 
+          href={logoUrls.logo} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex-shrink-0 hover:opacity-80 transition-opacity cursor-pointer"
+          style={{ transform: "scale(0.5)" }}
+        >
+          <pre className="font-mono text-[#00ff41] text-[2px] leading-[2.5px] whitespace-pre" style={{ textShadow: '0 0 1px #00ff41' }}>
+            {logoAscii}
+          </pre>
+        </a>
+        <a 
+          href={logoUrls.emblem} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex-shrink-0 hover:opacity-80 transition-opacity cursor-pointer"
+          style={{ transform: "scale(0.5)" }}
+        >
+          <pre className="font-mono text-[#00ff41] text-[2px] leading-[2.5px] whitespace-pre" style={{ textShadow: '0 0 1px #00ff41' }}>
+            {emblemAscii}
+          </pre>
+        </a>
       </div>
       
       {/* Top right */}
