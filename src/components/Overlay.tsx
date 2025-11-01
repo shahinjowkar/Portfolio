@@ -1,14 +1,11 @@
 'use client';
 
+import React, { useState, useEffect } from 'react';
 import InteractiveTerminal from './InteractiveTerminal';
-import { mcgillAscii } from '@/assets/ascii/mcgill';
-import { computerAscii } from '@/assets/ascii/computer';
-import { skullAscii } from '@/assets/ascii/skull';
-import { shieldAscii } from '@/assets/ascii/shield';
-import { logoAscii } from '@/assets/ascii/logo';
-import { emblemAscii } from '@/assets/ascii/emblem';
-import DFSMaze from './DFSMaze';
-import NeuralNetwork from './NeuralNetwork';
+import SideBox from './SideBox';
+
+type CornerPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+type BoxContentType = 'link' | 'maze' | 'pc' | 'university';
 
 export default function Overlay() {
   const greetingLines = [
@@ -21,6 +18,80 @@ export default function Overlay() {
     logo: 'mailto:shahinjowkardris@gmail.com',  
     emblem: 'https://github.com/shahinjowkar'
   };
+
+  // Track which corner box has the hyperlinks (default: top-left)
+  const [activeLinkCorner, setActiveLinkCorner] = useState<CornerPosition>('top-left');
+
+  // Track which box the cursor is currently in
+  const [cursorBox, setCursorBox] = useState<CornerPosition | false>(false);
+
+  // Print to console where hyperlinks are
+  useEffect(() => {
+    console.log('Hyperlinks are currently at:', activeLinkCorner);
+  }, [activeLinkCorner]);
+
+  // Handle swapping content when cursor enters a different box
+  useEffect(() => {
+    // 1) If cursorBox == activeLinkCorner => do nothing
+    if (cursorBox === activeLinkCorner) {
+      return;
+    }
+
+    // 2) If cursorBox == false => do nothing
+    if (cursorBox === false) {
+      return;
+    }
+
+    // 3) If cursorBox !== activeLinkCorner => swap content
+    // Swap content
+    setContentTypes(prev => {
+      const newTypes = { ...prev };
+      // Store what's currently in cursorBox
+      const cursorBoxContent = prev[cursorBox];
+      // Move 'link' to cursorBox
+      newTypes[cursorBox] = 'link';
+      // Move what was in cursorBox to where activeLinkCorner was
+      newTypes[activeLinkCorner] = cursorBoxContent;
+      return newTypes;
+    });
+
+    // Update activeLinkCorner to the new position (cursorBox)
+    setActiveLinkCorner(cursorBox);
+  }, [cursorBox, activeLinkCorner]);
+
+  // Handle cursor entering a box
+  const handleMouseEnter = (box: CornerPosition) => {
+    setCursorBox(box);
+    console.log('Cursor is in box:', box);
+  };
+
+  // Handle cursor leaving a box
+  const handleMouseLeave = () => {
+    setCursorBox(false);
+    console.log('Cursor is in box: false');
+  };
+
+  // Base hashmap mapping each corner to its default content type
+  const baseContentTypes: Record<CornerPosition, BoxContentType> = {
+    'top-left': 'link',
+    'top-right': 'maze',
+    'bottom-left': 'pc',
+    'bottom-right': 'university',
+  };
+
+  // Stateful hashmap that can be updated when swapping content
+  const [contentTypes, setContentTypes] = useState<Record<CornerPosition, BoxContentType>>(baseContentTypes);
+
+  // Hashmap mapping each corner to its positioning classes
+  const boxPositions: Record<CornerPosition, string> = {
+    'top-left': 'top-5 left-5',
+    'top-right': 'top-5 right-5',
+    'bottom-left': 'bottom-5 left-5',
+    'bottom-right': 'bottom-5 right-5',
+  };
+
+  // Array of all corner positions for iteration
+  const corners: CornerPosition[] = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
 
 
   return (
@@ -37,69 +108,21 @@ export default function Overlay() {
       </div>
 
       {/* Corner overlays - 2/3 size of main (doubled from 1/3 = 26.67%) */}
-      {/* Top left */}
-      <div className="absolute top-5 left-5 w-[26.67%] h-[26.67%] bg-black border border-[#00ff41]/30 z-[5] flex items-center justify-center p-2 gap-2 overflow-hidden">
-        <a 
-          href={logoUrls.shield} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="flex-shrink-0 hover:opacity-80 transition-opacity cursor-pointer"
-          style={{ transform: "scale(0.5)" }}
+      {corners.map((corner) => (
+        <div
+          key={corner}
+          className={`absolute ${boxPositions[corner]} w-[26.67%] h-[26.67%] bg-black border border-[#00ff41]/30 z-[5] overflow-hidden`}
+          onMouseEnter={() => handleMouseEnter(corner)}
+          onMouseLeave={handleMouseLeave}
         >
-          <pre className="font-mono text-[#00ff41] text-[2px] leading-[2.5px] whitespace-pre" style={{ textShadow: '0 0 1px #00ff41' }}>
-            {shieldAscii}
-          </pre>
-        </a>
-        <a 
-          href={logoUrls.logo} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="flex-shrink-0 hover:opacity-80 transition-opacity cursor-pointer"
-          style={{ transform: "scale(0.5)" }}
-        >
-          <pre className="font-mono text-[#00ff41] text-[2px] leading-[2.5px] whitespace-pre" style={{ textShadow: '0 0 1px #00ff41' }}>
-            {logoAscii}
-          </pre>
-        </a>
-        <a 
-          href={logoUrls.emblem} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="flex-shrink-0 hover:opacity-80 transition-opacity cursor-pointer"
-          style={{ transform: "scale(0.5)" }}
-        >
-          <pre className="font-mono text-[#00ff41] text-[2px] leading-[2.5px] whitespace-pre" style={{ textShadow: '0 0 1px #00ff41' }}>
-            {emblemAscii}
-          </pre>
-        </a>
-      </div>
-      
-      {/* Top right */}
-      <div className="absolute top-5 right-5 w-[26.67%] h-[26.67%] bg-black border border-[#00ff41]/30 z-[5] overflow-hidden">
-        <DFSMaze />
-      </div>
-      {/* Bottom left */}
-      <div className="absolute bottom-5 left-5 w-[26.67%] h-[26.67%] bg-black border border-[#00ff41]/30 z-[5] flex items-center justify-center p-3 overflow-hidden">
-        <pre className="font-mono text-[#00ff41] text-[8px] leading-[9px] whitespace-pre" style={{ textShadow: '0 0 2px #00ff41' }}>
-          {skullAscii}
-        </pre>
-      </div>
-      
-      {/* Bottom right */}
-
-      <div className="absolute bottom-5 right-5 w-[26.67%] h-[26.67%] bg-black border border-[#00ff41]/30 z-[5] flex items-center p-3 gap-4 overflow-hidden">
-        {/* ASCII Art - Left side */}
-        <div className="flex-shrink-0">
-          <pre className="font-mono text-[#00ff41] text-[6px] leading-[7px] whitespace-pre" style={{ textShadow: '0 0 2px #00ff41' }}>
-            {mcgillAscii}
-          </pre>
+          <div className="w-full h-full">
+            <SideBox 
+              contentType={contentTypes[corner]} 
+              logoUrls={contentTypes[corner] === 'link' ? logoUrls : undefined}
+            />
+          </div>
         </div>
-        {/* Text - Right side */}
-        <div className="flex flex-col justify-center font-mono text-[#00ff41] text-xs leading-relaxed" style={{ textShadow: '0 0 3px #00ff41' }}>
-          <div className="font-semibold mb-2">McGill University</div>
-          <div className="mb-1">B.Sc. in Computer Science,</div>
-        </div>
-      </div>
+      ))}
     </>
   );
 }
