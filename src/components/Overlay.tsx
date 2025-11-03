@@ -3,13 +3,23 @@
 import React, { useState, useEffect } from 'react';
 import InteractiveTerminal from './InteractiveTerminal';
 import SideBox from './SideBox';
+import { useBinaryBackground } from './BinaryBackground';
 
 type CornerPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 type BoxContentType = 'link' | 'maze' | 'pc' | 'university';
 
 export default function Overlay() {
+  const { toggleToTop, isOnTop } = useBinaryBackground();
+
   const greetingLines = [
-    '$ Hi, This Is Shahin Jowkar Dris known as Shawn'
+    '$ Hi, This Is Shahin :)',
+    '',
+    '',
+    '',
+    '"Fall in love with some activity, and do it! Nobody ever figures out what life is all about, and it doesn\'t matter."',
+    '',
+    '',
+    'Select:',
   ];
 
   // URLs for the ASCII logos (customize these)
@@ -96,6 +106,17 @@ export default function Overlay() {
 
   return (
     <>
+      {/* Button to toggle BinaryBackground to top */}
+      <button
+        onClick={toggleToTop}
+        className="fixed top-20 right-5 z-[9998] px-4 py-2 bg-black border border-[#00ff41]/30 text-[#00ff41] font-mono text-sm hover:bg-[#00ff41]/10 hover:border-[#00ff41] transition-all cursor-pointer"
+        style={{
+          textShadow: '0 0 5px #00ff41',
+        }}
+      >
+        {isOnTop ? 'Hide Binary' : 'Show Binary'}
+      </button>
+
       {/* Main overlay - center */}
       <div className="absolute inset-0 flex items-center justify-center z-[5]">
         <div className="w-2/5 h-2/5 bg-black border border-[#00ff41]/30">

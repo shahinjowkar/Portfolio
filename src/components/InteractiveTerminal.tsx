@@ -86,7 +86,7 @@ export default function InteractiveTerminal({
 
   return (
     <div 
-      className="w-full h-full p-6 font-mono text-[#00ff41] text-sm leading-relaxed overflow-auto"
+      className="w-full h-full p-6 font-mono text-[#00ff41] text-sm leading-relaxed overflow-auto flex flex-col"
       style={{
         textShadow: '0 0 5px #00ff41, 0 0 10px #00ff41, 0 0 15px #00ff41',
       }}
@@ -102,6 +102,35 @@ export default function InteractiveTerminal({
           █
         </span>
       </pre>
+      
+      {/* Navigation options - displayed after greeting finishes */}
+      {!isTyping && (
+        <div className="flex flex-wrap items-center gap-3 mt-2" style={{ marginTop: '8px' }}>
+          <span className="hover:text-[#00ff41] hover:scale-110 cursor-pointer transition-all duration-200 relative group">
+            <span className="text-[#00ff41]/70 group-hover:text-[#00ff41]">[</span>
+            <span className="px-1">Projects</span>
+            <span className="text-[#00ff41]/70 group-hover:text-[#00ff41]">]</span>
+          </span>
+          <span className="text-[#00ff41]/30">|</span>
+          <span className="hover:text-[#00ff41] hover:scale-110 cursor-pointer transition-all duration-200 relative group">
+            <span className="text-[#00ff41]/70 group-hover:text-[#00ff41]">[</span>
+            <span className="px-1">Blog</span>
+            <span className="text-[#00ff41]/70 group-hover:text-[#00ff41]">]</span>
+          </span>
+          <span className="text-[#00ff41]/30">|</span>
+          <span className="hover:text-[#00ff41] hover:scale-110 cursor-pointer transition-all duration-200 relative group">
+            <span className="text-[#00ff41]/70 group-hover:text-[#00ff41]">[</span>
+            <span className="px-1">biography</span>
+            <span className="text-[#00ff41]/70 group-hover:text-[#00ff41]">]</span>
+          </span>
+          <span className="text-[#00ff41]/30">|</span>
+          <span className="hover:text-[#00ff41] hover:scale-110 cursor-pointer transition-all duration-200 relative group">
+            <span className="text-[#00ff41]/70 group-hover:text-[#00ff41]">[</span>
+            <span className="px-1">passionAndVision</span>
+            <span className="text-[#00ff41]/70 group-hover:text-[#00ff41]">]</span>
+          </span>
+        </div>
+      )}
     </div>
   );
 }
