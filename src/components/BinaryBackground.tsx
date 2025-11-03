@@ -39,9 +39,11 @@ interface BinaryBackgroundProps {
 }
 
 function BinaryBackground({ isOnTop }: BinaryBackgroundProps) {
+  const { toggleToTop } = useBinaryBackground();
   const [binaryRows, setBinaryRows] = useState<string[]>([]);
   const [numRows, setNumRows] = useState(0);
   const [animatedIndex, setAnimatedIndex] = useState(-1); // Track how many divs have been animated
+  const [isHiding, setIsHiding] = useState(false); // Track when hide animation is active
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const currentIndexRef = useRef(0);
 
@@ -75,7 +77,7 @@ function BinaryBackground({ isOnTop }: BinaryBackgroundProps) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Animate divs one by one when isOnTop changes
+  // Animate divs one by one when isOnTop changes or when hiding
   useEffect(() => {
     // Clear any existing timeout
     if (timeoutRef.current) {
@@ -83,34 +85,68 @@ function BinaryBackground({ isOnTop }: BinaryBackgroundProps) {
       timeoutRef.current = null;
     }
 
-    if (isOnTop) {
-      // Start with first div immediately
+    if (isOnTop && !isHiding) {
+      // Show animation: start with first div immediately
       currentIndexRef.current = 0;
       flushSync(() => {
         setAnimatedIndex(0);
       });
-      console.log('Animation started: First div (index 0)');
+      console.log('Show animation started: First div (index 0)');
       
-      // Animate remaining divs one by one with 5 second delay for debugging
+      // Animate remaining divs one by one with 10ms delay
       const animateNext = () => {
         currentIndexRef.current += 1;
         if (currentIndexRef.current < binaryRows.length) {
-          console.log(`Animating div index: ${currentIndexRef.current}`);
+          console.log(`Showing div index: ${currentIndexRef.current}`);
           flushSync(() => {
             setAnimatedIndex(currentIndexRef.current);
           });
-          // Schedule next animation after 5 seconds (increased for debugging)
+          // Schedule next animation after 10ms
           timeoutRef.current = setTimeout(animateNext, 10);
         } else {
-          console.log('Animation complete');
+          console.log('Show animation complete');
+          // Wait 2 seconds, then automatically trigger hide animation
+          timeoutRef.current = setTimeout(() => {
+            console.log('Auto-triggering hide animation after 2 second delay');
+            setIsHiding(true);
+          }, 100);
         }
       };
       
-      // Start the animation chain after 5 seconds
+      // Start the animation chain after 10ms
       timeoutRef.current = setTimeout(animateNext, 10);
-    } else {
-      // Reset immediately when hiding
+    } else if (isHiding && animatedIndex >= 0) {
+      // Hide animation: start from bottom (index 0) and go up to top (index 49)
+      // Start by hiding div 0 first, so set animatedIndex to 1 (divs with index >= 1 visible, index 0 hidden)
+      currentIndexRef.current = 1;
+      flushSync(() => {
+        setAnimatedIndex(1);
+      });
+      console.log('Hide animation started: Hiding div index 0 first');
+      
+      const animateHide = () => {
+        currentIndexRef.current += 1;
+        if (currentIndexRef.current <= binaryRows.length) {
+          console.log(`Hiding div index: ${currentIndexRef.current - 1}`);
+          flushSync(() => {
+            setAnimatedIndex(currentIndexRef.current);
+          });
+          // Schedule next animation after 10ms
+          timeoutRef.current = setTimeout(animateHide, 10);
+        } else {
+          console.log('Hide animation complete');
+          setAnimatedIndex(-1);
+          setIsHiding(false);
+          toggleToTop(); // Reset z-index to -1 and state
+        }
+      };
+      
+      // Start hiding animation after 10ms
+      timeoutRef.current = setTimeout(animateHide, 10);
+    } else if (!isOnTop && !isHiding) {
+      // Reset when completely hidden
       setAnimatedIndex(-1);
+      setIsHiding(false);
     }
 
     return () => {
@@ -119,24 +155,36 @@ function BinaryBackground({ isOnTop }: BinaryBackgroundProps) {
         timeoutRef.current = null;
       }
     };
-  }, [isOnTop, binaryRows.length]);
+  }, [isOnTop, isHiding, binaryRows.length, toggleToTop]);
 
   // Debug: Track animatedIndex changes
   useEffect(() => {
     console.log('animatedIndex changed to:', animatedIndex);
   }, [animatedIndex]);
 
-  // Container z-index: high when showing, low when hiding
-  const containerZIndex = isOnTop ? 9999 : -1;
+  // Container z-index: high when showing or hiding, low when hidden
+  const containerZIndex = (isOnTop || isHiding) ? 9999 : -1;
   
 return (
+    <>
     <div 
       className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none"
       style={{ zIndex: containerZIndex }}
     >
       {binaryRows.map((row, index) => {
-        // Only show divs that have been animated (index <= animatedIndex)
-        const isVisible = isOnTop && animatedIndex >= 0 && index <= animatedIndex;
+        // Show logic: divs are visible when index <= animatedIndex (0 → 49)
+        // Hide logic: divs are visible when index >= animatedIndex (starts at 0, goes to 49)
+        // When showing: index <= animatedIndex (animatedIndex goes 0→49)
+        // When hiding: index >= animatedIndex (animatedIndex goes 0→49, so lower indices disappear first)
+        let isVisible;
+        if (isHiding) {
+          // During hide: divs with index >= animatedIndex stay visible
+          // So div 0 disappears first, then 1, 2, ... 49
+          isVisible = animatedIndex >= 0 && index >= animatedIndex;
+        } else {
+          // During show: divs with index <= animatedIndex are visible
+          isVisible = animatedIndex >= 0 && index <= animatedIndex;
+        }
         const divZIndex = isVisible ? index : -1; // Relative z-index within container
         
         // Debug log for first few divs
@@ -174,6 +222,7 @@ return (
         );
       })}
     </div>
+    </>
   );
 }
 
