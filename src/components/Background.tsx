@@ -82,7 +82,7 @@ export default function Background({ children }: BackgroundProps) {
         ))}
       </div>
       {/* Overlay - transparent black panel in the middle */}
-      <Overlay />
+      {/* <Overlay /> */}
       {/* Content layer */}
       <div className="relative z-10">
         {children}

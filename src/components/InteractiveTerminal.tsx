@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 
 interface InteractiveTerminalProps {
   greetingLines: string[];
@@ -106,11 +107,11 @@ export default function InteractiveTerminal({
       {/* Navigation options - displayed after greeting finishes */}
       {!isTyping && (
         <div className="flex flex-wrap items-center gap-3 mt-2" style={{ marginTop: '8px' }}>
-          <span className="hover:text-[#00ff41] hover:scale-110 cursor-pointer transition-all duration-200 relative group">
+          <Link href="/project" className="hover:text-[#00ff41] hover:scale-110 cursor-pointer transition-all duration-200 relative group">
             <span className="text-[#00ff41]/70 group-hover:text-[#00ff41]">[</span>
             <span className="px-1">Projects</span>
             <span className="text-[#00ff41]/70 group-hover:text-[#00ff41]">]</span>
-          </span>
+          </Link>
           <span className="text-[#00ff41]/30">|</span>
           <span className="hover:text-[#00ff41] hover:scale-110 cursor-pointer transition-all duration-200 relative group">
             <span className="text-[#00ff41]/70 group-hover:text-[#00ff41]">[</span>

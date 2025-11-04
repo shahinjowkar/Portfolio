@@ -1,7 +1,12 @@
+import Overlay from "@/components/Overlay";
+
 export default function Home() {
   return (
-    <div>
-      {/* Your page content goes here */}
+    <div 
+      className="relative min-h-screen"
+    >
+      <Overlay />
     </div>
+
   );
 }
